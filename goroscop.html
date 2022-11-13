@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<HTML>
+  <HEAD>
+    <TITLE> Лабораторная работа 3 </TITLE>
+	  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+	  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+
+	  <style>
+	  body { background-color: yellow ; }
+	  table{ display: none;}
+	  p {   font-family: Verdana, Arial, Helvetica, sans-serif; 
+    font-size: 13pt;}
+	 caption { 
+     caption-side: top;/* Заголовок под таблицей */ 
+	  
+    }
+	  </style>
+ </HEAD>
+  <BODY>
+   <center> <H3> Лаба 3, 2-Вариант. Выполнил: Бдицких В. </H3>  </center> 
+	
+<H3>Напишите скрипт, который запрашивает дату (число/месяц/год) и выводит следующую информацию: время года, високосный или нет год, какому зодиакальному знаку соответствует данная дата и сколько дней, недель, месяцев и лет разделает нас от текущей даты.</H3>
+	
+	<center><form name="tabl">
+	    <input style="width:150px;height:30px;font-size: 13pt;" type="number" placeholder=" Введите день: " name="tabl1">
+		<input style="width:150px;height:30px;font-size: 13pt;" type="number" placeholder=" Введите месяц: " name="tabl2">
+		<input style="width:150px;height:30px;font-size: 13pt;" type="number" placeholder=" Введите год: " name="tabl3">
+			<br><br>
+			<button style="width:100px;height:30px;font-size: 13pt;" onclick="Complete1()"  type="button">  Готово </button>
+	</form>
+	
+    <SCRIPT LANGUAGE="JavaScript">
+function Complete1()
+{
+	var day = document.tabl.tabl1.value; 
+	var month = document.tabl.tabl2.value; 
+	var god = document.tabl.tabl3.value; 
+
+	var myDate = document.tabl.tabl1.value +"." + document.tabl.tabl2.value +"." + document.tabl.tabl3.value; 
+	document.getElementById("d").innerHTML = "Вы ввели: " + day + "." + month + "." + god ;
+
+	var seasons = ['Зима', 'Весна', 'Лето', 'Осень']; 
+	if (month > 12 || month < 0) document.getElementById("de").innerHTML =(month = "Такого месяца не существует");	
+	if (month==12) month=0;
+	document.getElementById("dem").innerHTML =('Время года: ' + seasons[Math.floor(month / 3)]);
+	if (month==0) month=12;
+	
+	if(god%4==0)
+	{
+	if((god%100!=0)||(god%400==0))
+	{
+	document.getElementById("demo").innerHTML =('Год: Високосный');
+}	}
+	else document.getElementById("demo").innerHTML =('Год: Невисокосный');
+	var zodik = ["Козерог","Водолей","Рыбы","Овен","Телец","Близнецы","Рак","Лев","Дева","Весы","Скорпион","Стрелец"];
+
+	if ((day<=20)&&(month==1)) {document.getElementById("demo1").innerHTML =('Знак зодиака: '+ zodik[0]);}	//козерог
+else if ((day>=21)&&(month==1)){document.getElementById("demo1").innerHTML =('Знак зодиака: '+ zodik[1]);}			//водолей
+
+	if ((day<=19)&&(month==2)) {document.getElementById("demo1").innerHTML =('Знак зодиака: '+ zodik[1]);}				//водолей
+else  if ((day>=20)&&(month==2)){document.getElementById("demo1").innerHTML =('Знак зодиака: '+ zodik[2]);}		//рыбы
+
+	if ((day<=20)&&(month==3)){document.getElementById("demo1").innerHTML =('Знак зодиака: '+ zodik[2]);}		//рыбы	
+else if ((day>=21)&&(month==3)) {document.getElementById("demo1").innerHTML =('Знак зодиака: '+ zodik[3]);}	//овен
+
+ if ((day<=20)&&(month==4)){ document.getElementById("demo1").innerHTML =('Знак зодиака: '+ zodik[3]);}			//овен
+else if ((day>=21)&&(month==4)) {document.getElementById("demo1").innerHTML =('Знак зодиака: '+ zodik[4]);}				//телец
+	
+ if ((day<=21)&&(month==5)){document.getElementById("demo1").innerHTML =('Знак зодиака: '+ zodik[4]);}		//телец
+else if ((day>=22)&&(month==5)){ document.getElementById("demo1").innerHTML =('Знак зодиака: '+ zodik[5]);}		//близнецы
+
+	if ((day<=21)&&(month==6)) {document.getElementById("demo1").innerHTML =('Знак зодиака: '+ zodik[5]);}	
+else if ((day>=22)&&(month==6)){ document.getElementById("demo1").innerHTML =('Знак зодиака: '+ zodik[6]);}			
+
+	if ((day<=22)&&(month==7)) {document.getElementById("demo1").innerHTML =('Знак зодиака: '+ zodik[6]);}			
+else  if ((day>=23)&&(month==7)){document.getElementById("demo1").innerHTML =('Знак зодиака: '+ zodik[7]);}	
+
+	if ((day<=23)&&(month==8)){ document.getElementById("demo1").innerHTML =('Знак зодиака: '+ zodik[7]);}		
+else if ((day>=24)&&(month==8)) {document.getElementById("demo1").innerHTML =('Знак зодиака: '+ zodik[8]);}	
+
+ if ((day<=22)&&(month==9)){ document.getElementById("demo1").innerHTML =('Знак зодиака: '+ zodik[8]);}			
+else if ((day>=23)&&(month==9)) {document.getElementById("demo1").innerHTML =('Знак зодиака: '+ zodik[9]);}			
+	
+ if ((day<=22)&&(month==10)){document.getElementById("demo1").innerHTML =('Знак зодиака: '+ zodik[9]);}		
+else if ((day>=23)&&(month==10)){document.getElementById("demo1").innerHTML =('Знак зодиака: '+ zodik[10]);}		
+
+ if ((day<=22)&&(month==11)){ document.getElementById("demo1").innerHTML =('Знак зодиака: '+ zodik[10]);}			
+else if ((day>=22)&&(month==11)) {document.getElementById("demo1").innerHTML =('Знак зодиака: '+ zodik[11]);}			
+	
+  if ((day<=21)&&(month==12)){ document.getElementById("demo1").innerHTML =('Знак зодиака: '+ zodik[11]);}		
+else if ((day>=22)&&(month==12)){document.getElementById("demo1").innerHTML =('Знак зодиака: '+ zodik[0]);}	
+
+   var a = myDate.split (' '),
+       b = a [0].split  ('.'),
+       d = new Date,
+ 
+     T     = [],    C     = [];
+     T [0] = b [2], C [0] = d.getFullYear (),  
+     T [1] = b [1] - 1, C [1] = d.getMonth    (),      
+     T [2] = b [0]    , C [2] = d.getDate     ();       
+
+   for (var D = [], j = 0; j < 3; j++) D [j] = C [j] - T [j];
+ 
+  if (D [2] < 0) D [2] = C [2] + new Date (C [0], C [1], 0).getDate () - T [2], D [1]--;
+   if (D [1] < 0) D [1] = C [1] + 12 - T [1],                                   D [0]--;
+   for (j = 0; j < 3; j++)
+   formTxt (D [j], j);
+
+      function formTxt (n, q)
+      {
+      var w = [[' год '    , ' года '   , ' лет '    ],  // 0, M
+               [' месяц '  , ' месяца ' , ' месяцев '],  // 1, M
+               [' день '   , ' дня '    , ' дней '   ]],  // 2, M
+        k = n % 10,
+          l = (!k || n > 5 && n < 21 || k > 4) ? 2 : ((k == 1) ? 0 : 1),
+          t = w [q] [l];
+      document.getElementById ('mt').rows [0].cells [q].innerHTML ='<p>' + n + '<p>' + t; 
+      }
+	document.getElementById("mt").style.display = "inline";	
+	}
+   </SCRIPT>
+   	<font color="LimeGreen"> <h2 id="d" ></h2></font>
+	<font color="red">  <h2 id="de"></h2></font>
+		<font color="SteelBlue"> <h2 id="dem"></h2></font>
+		<font color="BlueViolet">	<h2 id="demo"></h2></font>	
+		<font color="DarkMagenta"><h2 id="demo1"></h2></font>	
+
+	<table cellpadding="15" cellspacing="5" id="mt"> 
+	<caption><h2><font color="MidnightBlue"> Разница между введенной датой и нынешней</font> </h2> </caption>
+<tr bgcolor="Goldenrod" ><th><p><div></div></th><th><div></div></th><th><div></div></p></th></tr>  
+	</table>
+
+</center>
+  </BODY>
+</HTML>
